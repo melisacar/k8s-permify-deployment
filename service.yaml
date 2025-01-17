@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: permify-service
+spec:
+  selector:
+    app: permify
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3476
+  type: LoadBalancer
+
+  #https://docs.permify.co/setting-up/configuration
