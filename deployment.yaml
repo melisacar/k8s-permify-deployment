@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: permify-deployment
+  labels:
+    app: permify
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: permify
+  template:
+    metadata:
+      labels:
+        app: permify
+    spec:
+      containers:
+      - name: permify
+        image: permify/permify:latest
+        ports:
+        - containerPort: 3478
+        env:
+        - name: PERMIFY_ENV
+          value: "production"
